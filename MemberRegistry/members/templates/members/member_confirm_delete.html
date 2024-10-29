@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Poista jäsen</title>
+    <style>
+
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            margin: 0;
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f9;
+        }
+        .container {
+            text-align: center;
+            padding: 20px;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            background-color: #ffffff;
+            max-width: 400px;
+        }
+        button {
+            margin-top: 10px;
+            padding: 8px 16px;
+            background-color: #d9534f;
+            color: white;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+        button:hover {
+            background-color: #c9302c;
+        }
+        a {
+            display: inline-block;
+            margin-top: 10px;
+            color: #337ab7;
+            text-decoration: none;
+        }
+        a:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Poista jäsen</h1>
+        <p>Oletko varma, että haluat poistaa jäsenen {{ member.first_name }} {{ member.last_name }}?</p>
+        <form method="post">
+            {% csrf_token %}
+            <button type="submit">Kyllä, poista</button>
+            <a href="{% url 'member_list' %}">Peruuta</a>
+        </form>
+    </div>
+</body>
+</html>

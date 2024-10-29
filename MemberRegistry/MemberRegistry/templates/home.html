@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Home Page</title>
+    <style>
+
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh; 
+            margin: 0;
+        }
+        .centered-content {
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+    <div class="centered-content">
+        <h1>Welcome to the Member Registry</h1>
+        <p>This is the home page. Go to <a href="{% url 'member_list' %}">Members</a> to view the member list.</p>
+    </div>
+</body>
+</html>

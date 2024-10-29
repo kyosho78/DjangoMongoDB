@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Jäsenrekisteri</title>
+    <style>
+
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            margin: 0;
+            font-family: Arial, sans-serif;
+        }
+        .container {
+            text-align: center;
+            max-width: 500px;
+            margin: 0 auto;
+        }
+        ul {
+            list-style-type: none;
+            padding: 0;
+        }
+        li {
+            margin-bottom: 10px;
+        }
+        a {
+            color: #4CAF50;
+            text-decoration: none;
+        }
+        a:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Jäsenrekisteri</h1>
+        <a href="{% url 'member_create' %}">Lisää uusi jäsen</a>
+        
+        <ul>
+            {% for member in members %}
+                <li>
+                    {{ member.first_name }} {{ member.last_name }} - 
+                    <a href="{% url 'member_update' member.pk %}">Muokkaa</a> - 
+                    <a href="{% url 'member_delete' member.pk %}">Poista</a>
+                </li>
+            {% endfor %}
+        </ul>
+    </div>
+</body>
+</html>
